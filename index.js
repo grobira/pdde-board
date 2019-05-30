@@ -7,10 +7,10 @@ const app = express();
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 app.use(bodyparser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('./css'));
 
 app.use('/', router);
 
-app.listen(3000, () => {
+app.listen(8080, () => {
   console.log('Listening to port 3000');
 });
