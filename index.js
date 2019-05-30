@@ -11,6 +11,5 @@ app.use(express.static('./static'));
 app.use('/', router);
 
 app.listen(process.env.PORT || 8080, () => {
-  console.log('test')
   console.log('Listening to port 8080');
 });
