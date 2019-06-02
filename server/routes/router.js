@@ -39,13 +39,13 @@ router
         detalhamento.push({ descricao, valor });
 
         console.log(req.body);
-        const arr = new Array(10);
+        const arr = new Array(10).fill(0);
         arr.forEach((val, index) => {
             if (req.body[`descricao${index}`]) {
                 const desc = _.get(req, 'body.descricao' + index);
                 const val = _.get(req, 'body.valor' + index);
 
-                detalhamento.push({ desc, val });
+                detalhamento.push({ descricao : desc, valor: val });
             }
         });
 
