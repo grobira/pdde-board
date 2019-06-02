@@ -8,6 +8,7 @@ const addEscola = (args) => {
         console.log(`Adicionada escola ${JSON.stringify(args)}`);
     })
     .catch(err =>{
+        console.error(err)
         console.log('Erro ao adicionar escolas');
         throw err;
     });
