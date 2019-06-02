@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<% include ./templates/head %>
+
+<body>
+    <% include ./templates/header %>
+    <div class="container">
+        <div class="row">
+            <h2>Adicionar Dados PDDE</h2>
+            <div class="col s12 offset-s1">
+                <p class="flow-text" style="font-size: 16px">
+                    Neste form é possível adicionar informações sobre o repasse do PDDE das escolas. </br>
+                </p>
+            </div>
+        </div>
+        <form class="col s12" action="/escolas" method="POST" id="formEscolas">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" class="validate" name="nome">
+                    <label>Nome da Escola</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" class="validate" name="estado">
+                    <label>Estado</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" class="validate" name="ano">
+                    <label>Ano</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" class="validate" name="repasse">
+                    <label>Repasse</label>
+                </div>
+            </div>
+            <div class="row">
+                <div id="formDetalhes">
+                    <div class="input-field col s6">
+                        <input type="text" class="validate" name="descricao">
+                        <label>Descrição</label>
+                    </div>
+                    <div class="input-field col s5">
+                        <input type="text" class="validate" name="valor">
+                        <label>Valor</label>
+                    </div>
+                </div>
+                <a class="btn-floating btn-large waves-effect waves-light red" id="addDetalhes"><i
+                        class="material-icons">add</i></a>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Enviar
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+    <% include ./templates/footer %>
+    <script>
+        $(document).ready(function () {
+
+            let x = 1;
+            const add_button = $("#addDetalhes");
+            const formHtml = '<div class="input-field col s6"\><input type="text" ' +
+                'class="validate" name="descricao'+ x + '"\><label>Descrição</label\></div\> ' +
+                '<div class="input-field col s5"\><input type="text" class="validate" name="valor'+ x + '"\><label>Valor</label\></div>';
+            let max_fields = 10;
+            let wrapper = $("#formDetalhes");
+
+            $(add_button).click(function (e) {
+                e.preventDefault();
+                if (x < max_fields) {
+                    x++;
+                    $(wrapper).append(formHtml); //add input box
+                } else {
+                    alert('You Reached the limits')
+                }
+            });
+        });
+    </script>
+</body>
+
+
+</html>

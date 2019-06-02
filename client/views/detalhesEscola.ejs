@@ -18,7 +18,6 @@
             <table>
                 <thead>
                     <tr role="row">
-                        <th>Id</th>
                         <th>Nome da Instituição</th>
                         <th>Estado</th>
                         <th>Ano</th>
@@ -26,13 +25,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% escolas.forEach( (escola, index) => {  %>
                     <tr>
-                        <td><a href="/escolas/<%= escola._id %>"><%= index %></a></td>
-                        <td><a href="/escolas/<%= escola._id %>"><%= escola.nome%></a></td>
-                        <td><a href="/escolas/<%= escola._id %>"><%= escola.estado%></a></td>
-                        <td><a href="/escolas/<%= escola._id %>"><%= escola.ano%></a></td>
-                        <td><a href="/escolas/<%= escola._id %>"><%= escola.repasse%></a></td>
+                        <td><%= escola.nome %></td>
+                        <td><%= escola.estado %></td>
+                        <td><%= escola.ano %></td>
+                        <td><%= escola.repasse %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="divider"></div>
+        <div class="col s12">
+            <table>
+                <thead>
+                    <tr role="row">
+                        <th>Descrição Repasse</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% escola.detalhamento.forEach( detalhes => { %>
+                    <tr>
+                        <td><%= detalhes.descricao %></td>
+                        <td><%= detalhes.valor%></td>
                     </tr>
                     <% }) %>
                 </tbody>

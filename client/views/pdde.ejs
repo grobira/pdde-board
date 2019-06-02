@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang='pt-BR'>
 <% include ./templates/head %>
+
 <body>
     <% include ./templates/header %>
     <div class="container">
-        <div class="masonry row">
-            <div class="col s12">
-                <h2>PDDE</h2>
+        <div class="row">
+            <h2>PDDE</h2>
+            <div class="col s12 offset-s1">
+                <p class="flow-text" style="font-size: 16px">
+                    Nesta tabela é possível encontrar a escola e ver o detalhamento do uso do repasse que a escola
+                    utilizou. </br>
+                </p>
             </div>
+        </div>
+        <div class="divider"></div>
+        <div class="col s12">
+            <table>
+                <thead>
+                    <tr role="row">
+                        <th>Id</th>
+                        <th>Nome da Instituição
+                        </th>
+                        <th>Estado</th>
+                        <th>Ano</th>
+                        <th>Repasse PDDE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>49</td>
+                        <td>Escola 1</td>
+                        <td>SP</td>
+                        <td>2014</td>
+                        <td>$115,000</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <% include ./templates/footer %>
