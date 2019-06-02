@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<% include ./templates/head %>
+<body>
+    <% include ./templates/header %>
+    <div class="container">
+        <div class="col s12">
+            <h2>Não encontrado</h2>
+        </div>
+        <div>
+            <p class='flow-text'>
+                <%= error.text %>
+            </p>
+        </div>
+    </div>
+    <% include ./templates/footer %>
+</body>
+
+</html>

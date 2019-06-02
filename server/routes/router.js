@@ -27,7 +27,7 @@ router
                 if (!_.isEmpty(escola)) {
                     res.render('detalhesEscola', { escola });
                 } else {
-                    res.status(404).send('404 Not Found')
+                    res.status(404).render('404', { error : {text : "Escola não encontrada"}});
                 }
             })
     })
@@ -38,7 +38,6 @@ router
 
         detalhamento.push({ descricao, valor });
 
-        console.log(req.body);
         const arr = new Array(10).fill(0);
         arr.forEach((val, index) => {
             if (req.body[`descricao${index}`]) {
