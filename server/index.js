@@ -12,7 +12,7 @@ app.use(express.static('./client/static'));
 
 app.use('/', router);
 
-mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost:27017/pdde',  { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/pdde',  { useNewUrlParser: true })
   .then(() => {
     console.log('Connected to database.');
   });
