@@ -32,22 +32,19 @@ router
             })
     })
     .post('/escolas', (req, res) => {
-        const { nome, estado, ano, repasse } = req.body;
-        const { descricao, valor } = req.body;
+        const { nome, estado, ano, repasse , descricao, valor} = req.body;
         const detalhamento = [];
         console.log(req.body);
         
-        detalhamento.push({ descricao, valor });
 
-        const arr = new Array(10).fill(0);
-        arr.forEach((val, index) => {
-            if (req.body[`descricao${index}`]) {
-                const desc = _.get(req, 'body.descricao' + index);
-                const val = _.get(req, 'body.valor' + index);
+        if(_.isArray(descricao)){
+            descricao.forEach( (el, index) =>{
+                detalhamento.push({ descricao : el, valor: valor[index] });
+            })
+        }else{
+            detalhamento.push({ descricao, valor });
+        }
 
-                detalhamento.push({ descricao : desc, valor: val });
-            }
-        });
 
         EscolaRepository.addEscola({ nome, estado, ano, repasse, detalhamento })
             .then(() => {
