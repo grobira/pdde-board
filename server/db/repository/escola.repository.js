@@ -6,6 +6,10 @@ const addEscola = (args) => {
     const newEscola = new escolaModel({ nome, estado, ano, repasse, detalhamento });
     return newEscola.save().then(() => {
         console.log(`Adicionada escola ${JSON.stringify(args)}`);
+    })
+    .catch(err =>{
+        console.log('Erro ao adicionar escolas');
+        throw err;
     });
 };
 
@@ -13,6 +17,10 @@ const findAllEscola = () => {
     return escolaModel.find({}).exec().then((result) => {
         console.log(`Query retornou escolas : ${JSON.stringify(result)}`);
         return result;
+    })
+    .catch(err =>{
+        console.log('Erro ao buscar escolas');
+        throw err;
     });
 };
 

@@ -51,8 +51,7 @@ router
         EscolaRepository.addEscola({ nome, estado, ano, repasse, detalhamento })
             .then(() => {
                 res.status(201).render('escolas');
-            }).catch(err => {
-                console.err(err);
+            }).catch( () => {
                 res.status(500).send('Falha ao inserir escola');
             });
     })
