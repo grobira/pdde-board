@@ -35,7 +35,8 @@ router
         const { nome, estado, ano, repasse } = req.body;
         const { descricao, valor } = req.body;
         const detalhamento = [];
-
+        console.log(req.body);
+        
         detalhamento.push({ descricao, valor });
 
         const arr = new Array(10).fill(0);
