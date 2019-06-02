@@ -1,17 +1,21 @@
 body {
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
 }
 
 main {
   flex: 1 0 auto;
+  margin-bottom: 20px;
+  display: inline-block;
+
 }
 
-footer{
-  position: absolute;
+footer {
+  position: fixed;
   bottom: 0;
   width: 100%;
+  display: inline-block;
 }
 
 h3 {
