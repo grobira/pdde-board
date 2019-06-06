@@ -75,7 +75,9 @@
             const add_button = $("#addDetalhes");
             const formHtml = '<div class="input-field col s6"\><input type="text" ' +
                 'class="validate" name="descricao"\><label>Descrição</label\></div\> ' +
-                '<div class="input-field col s5"\><input type="text" class="validate" name="valor"\><label>Valor</label\></div>';
+                '<div class="input-field col s5"\><input type="text" class="validate" name="valor"\><label>Valor</label\></div>' +
+                    '<div class="input-field col s2"\><select name="tipo"\><option value="" disabled selected>Capital ou Custeio</option\>' +
+                    '<option value="Capital">Capital</option\><option value="Custeio">Custeio</option\></select\><label>Natureza</label\></div>';
             let max_fields = 10;
             let wrapper = $("#formDetalhes");
 
