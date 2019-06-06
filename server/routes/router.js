@@ -32,17 +32,17 @@ router
             })
     })
     .post('/escolas', (req, res) => {
-        const { nome, estado, ano, repasse , descricao, valor} = req.body;
+        const { nome, estado, ano, repasse , descricao, valor, tipo} = req.body;
         const detalhamento = [];
         console.log(req.body);
         
 
         if(_.isArray(descricao)){
             descricao.forEach( (el, index) =>{
-                detalhamento.push({ descricao : el, valor: valor[index] });
+                detalhamento.push({ descricao : el, valor: valor[index], tipo: tipo[index] });
             })
         }else{
-            detalhamento.push({ descricao, valor });
+            detalhamento.push({ descricao, valor, tipo });
         }
 
 

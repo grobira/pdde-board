@@ -41,9 +41,17 @@
                             <input type="text" class="validate" name="descricao">
                             <label>Descrição</label>
                         </div>
-                        <div class="input-field col s5">
+                        <div class="input-field col s3">
                             <input type="text" class="validate" name="valor">
                             <label>Valor</label>
+                        </div>
+                        <div class="input-field col s2">
+                            <select name="tipo">
+                                <option value="" disabled selected>Capital ou Custeio</option>
+                                <option value="Capital">Capital</option>
+                                <option value="Custeio">Custeio</option>
+                            </select>
+                            <label>Natureza</label>
                         </div>
                     </div>
                     <a class="btn-floating btn-large red" id="addDetalhes"><i class="material-icons">add</i></a>
@@ -56,6 +64,11 @@
     </main>
     <% include ./templates/footer %>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+
         $(document).ready(function () {
 
             let x = 1;

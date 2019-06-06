@@ -7,6 +7,9 @@ const detalhesSchema = new mongoose.Schema({
     valor: {
         type: String
     },
+    tipo: {
+        type: String
+    },
 })
 const escolaSchema = new mongoose.Schema({
     nome: {
