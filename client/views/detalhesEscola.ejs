@@ -4,7 +4,7 @@
 
 <body>
     <% include ./templates/header %>
-    <div class="container">
+    <div class="container" style="margin-bottom: 95px">
         <div class="row">
             <h2>Repasses Gerais</h2>
             <div class="col s12 offset-s1">
@@ -36,11 +36,12 @@
         </div>
         <div class="divider"></div>
         <div class="col s12">
-            <table>
+            <table class="striped">
                 <thead>
                     <tr role="row">
                         <th>Descrição Repasse</th>
                         <th>Valor</th>
+                        <th>Natureza</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,8 +55,39 @@
                 </tbody>
             </table>
         </div>
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
     <% include ./templates/footer %>
+    <script>
+        const colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+		  '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
+		  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+		  '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC', 
+		  '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+		  '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680', 
+		  '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+		  '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
+		  '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
+        const labels = ejs.render("<%= escola.detalhamento.map(el => el.descricao ).join('|') %>");
+        let data = ejs.render("<%= escola.detalhamento.map(el => el.valor).join('|') %>");
+        data = data.split('|').map(el => el.slice(0, el.length - 3).replace('.', ''));
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels.split('|'),
+                datasets: [
+                    {
+                        fill: true,
+                        data: data,
+                        backgroundColor: colorArray.map(el => colorArray[Math.floor(Math.random() * 50)]),
+                    }]
+            }
+        });
+    </script>
 </body>
 
 </html>
